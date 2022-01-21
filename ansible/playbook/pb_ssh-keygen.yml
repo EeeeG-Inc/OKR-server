@@ -1,0 +1,6 @@
+---
+- name: ssh-keygen for GitHub
+  hosts: all
+  become: True
+  roles:
+    - roles/ssh-keygen

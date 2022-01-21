@@ -1,0 +1,35 @@
+# Apache が起動している場合は停止
+# - name: service apache2 stop
+#   command: service apache2 stop
+
+# nginx
+- name: chown -R www-data.www-data /var/www/{{ project }}/storage
+  command: chown -R www-data.www-data /var/www/{{ project }}/storage
+
+# ansible/roles/nginx/files/config をコピー
+- name: copy config
+  copy: src=config dest=/etc/nginx/sites-available/{{ project }}
+
+- name: ln -s /etc/nginx/sites-available/{{ project }} /etc/nginx/sites-enabled/
+  command: ln -s /etc/nginx/sites-available/{{ project }} /etc/nginx/sites-enabled/
+
+- name: rm /etc/nginx/sites-enabled/default
+  command: rm /etc/nginx/sites-enabled/default
+
+# 文法チェック
+- name: nginx -t
+  command: nginx -t
+
+# php-fpm 起動
+- name: systemctl enable php7.3-fpm
+  command: systemctl enable php7.3-fpm
+
+- name: systemctl start php7.3-fpm
+  command: systemctl start php7.3-fpm
+
+# nginx 起動
+- name: systemctl enable nginx
+  command: systemctl enable nginx
+
+- name: systemctl start nginx
+  command: systemctl start nginx

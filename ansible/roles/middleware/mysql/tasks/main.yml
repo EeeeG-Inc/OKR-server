@@ -1,0 +1,9 @@
+---
+# apt install mysql-client mysql-server
+- name: mysql install
+  apt:
+    name:
+      - mysql-client
+      - mysql-server
+      # Ansible では python 経由で MySQL のクエリ実行するのでライブラリが必要
+      - python3-mysqldb

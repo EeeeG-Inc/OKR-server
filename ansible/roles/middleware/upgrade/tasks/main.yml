@@ -1,0 +1,5 @@
+---
+# apt upgrade -y
+- name: apt upgrade
+  apt:
+    upgrade: yes

@@ -1,0 +1,6 @@
+---
+- name: init nginx
+  hosts: all
+  become: True
+  roles:
+    - roles/nginx

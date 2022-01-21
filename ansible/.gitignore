@@ -1,0 +1,3 @@
+terraform-sample
+roles/common/files/deploy_key.pem
+hosts

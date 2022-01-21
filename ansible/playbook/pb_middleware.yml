@@ -1,0 +1,11 @@
+---
+- name: install middleware
+  hosts: all
+  become: True
+  roles:
+    - roles/middleware/update
+    - roles/middleware/upgrade
+    - roles/middleware/php
+    - roles/middleware/mysql
+    - roles/middleware/others
+    - roles/middleware/composer

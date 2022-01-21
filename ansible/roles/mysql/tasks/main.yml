@@ -1,0 +1,32 @@
+---
+# CREATE DATABASE
+- name: create mysql database
+  mysql_db: name={{ mysql_database }} state=present
+
+# host の % 指定によって DB アクセスをフルオープンにする
+- name: create root user
+  mysql_user: name={{ mysql_user }} host=% password={{ mysql_password }} priv={{ mysql_database }}.*:ALL,GRANT state=present
+
+# host が localhost のとき plugin を mysql_native_password に変更しておく
+- name: create root user
+  mysql_user: name={{ mysql_user }} host=localhost password={{ mysql_password }} priv={{ mysql_database }}.*:ALL,GRANT state=present
+
+# bind-address = 127.0.0.1 をコメントアウトして、すべての IP アクセスから DB アクセス許可
+- name: comment out a line bind-address = 127.0.0.1
+  replace: >
+    dest=/etc/mysql/mysql.conf.d/mysqld.cnf
+    regexp='^bind-address'
+    replace='# bind-address'
+
+- name: start mysql
+  service: name=mysql state=restarted enabled=yes
+
+# sudo mysql_secure_installation
+# mysql -u root -proot
+# SELECT user,authentication_string,plugin,host FROM mysql.user;
+# ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+# FLUSH PRIVILEGES;
+# CREATE DATABASE okr;
+# emacs /etc/mysql/mysql.conf.d/mysqld.cnf
+# bind-address = 0.0.0.0
+# sudo systemctl restart mysql.service

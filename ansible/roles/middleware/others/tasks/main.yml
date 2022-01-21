@@ -1,0 +1,10 @@
+---
+# apt install git nginx openssl emacs npm -y
+- name: other middleware install
+  apt:
+    name:
+      - git
+      - nginx
+      - openssl
+      - emacs
+      - npm

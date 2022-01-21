@@ -1,0 +1,5 @@
+[linode]
+XXX.XXX.XXX.XXX
+
+[all:vars]
+ansible_user=root
