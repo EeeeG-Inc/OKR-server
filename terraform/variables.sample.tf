@@ -1,6 +1,6 @@
 variable "linode" {
   default = {
-    # API Token
+    # Linode の API Token
     token = ""
   }
 }

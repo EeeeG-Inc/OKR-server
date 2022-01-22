@@ -8,6 +8,8 @@
 
 # Terraform
 
+## 下記 README.md の手順を実施
+
 - https://github.com/EeeeG-Inc/OKR-server/tree/main/terraform
 
 ## SSH
@@ -33,11 +35,13 @@ Host okr-web
 ssh okr-web
 ```
 
-# ansible
+# Ansible
+
+## 下記 README.md の手順を実施
 
 - https://github.com/EeeeG-Inc/OKR-server/tree/main/ansible
 
-## その後、SSH して手動で実行すること
+# Laravel の作業
 
 ```sh
 cd /var/www/OKR-manage-app
