@@ -3,4 +3,5 @@
   hosts: all
   become: True
   roles:
-    - roles/common
+    - roles/common/timezone
+    - roles/common/ssh-keygen

@@ -1,8 +1,9 @@
-# Linode に LAMP 環境を構築する
+# Linode に Laravel 動作環境を構築する
 
 - ubuntu 21.10
-- PHP 7.3.33
+  - Linode の nanode インスタンスタイプで構築
 - Laravel Framework 8.75.0
+- PHP 7.3.33
 - MySQL 8.0.27
 
 # Terraform
@@ -18,7 +19,7 @@ Linode インスタンス構築後の作業
 scp ~/.ssh/id_rsa.pub root@IP:~/.ssh/authorized_keys
 ```
 
-### ローカルの ~/.ssh/config について
+### クライアントの ~/.ssh/config
 
 ```
 Host okr-web
@@ -36,12 +37,12 @@ ssh okr-web
 
 - https://github.com/EeeeG-Inc/OKR-server/tree/main/ansible
 
-## その後、手動でやること
+## その後、SSH して手動で実行すること
 
 ```sh
 cd /var/www/OKR-manage-app
 cp .env.example .env
-emacs .env
+vi .env
 ```
 
 - `.env` を編集する
@@ -60,11 +61,14 @@ DB_PASSWORD=パスワード
 php -v
 
 # PHP バージョンが違う場合、このコマンドで変更する
-update-alternatives --config php
+# update-alternatives --config php
 
 composer install
 php artisan key:gen
 php artisan migrate --seed
 npm i
 npm run dev
+
+# nginx 再起動
+systemctl restart nginx
 ```

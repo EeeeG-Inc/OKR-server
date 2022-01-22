@@ -1,7 +1,3 @@
-# 構築環境
-
-- ubuntu21.10
-
 # 実行環境
 
 ## Mac
@@ -9,6 +5,7 @@
 ```sh
 brew install terraform
 
+# バージョン確認
 terraform -version
 Terraform v1.1.3
 on darwin_arm64
