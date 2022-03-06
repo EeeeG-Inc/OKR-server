@@ -54,6 +54,7 @@ cd /var/www
 git clone git@github.com:EeeeG-Inc/OKR-manage-app.git
 cd OKR-manage-app
 chmod 777 storage
+chmod 777 storage/app/public/profiles
 
 # nginx 初期化
 # ansible/roles/nginx/files/config の root 名 / php-fpm.sock のバージョンが合っているか確認すること
