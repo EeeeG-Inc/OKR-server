@@ -1,4 +1,6 @@
-# Linode に Laravel 動作環境を構築する
+# OKR-server
+
+[OKR-web-app](https://github.com/EeeeG-Inc/OKR-web-app) の動作環境を構築します
 
 - ubuntu 21.10
   - Linode の nanode インスタンスタイプで構築
@@ -44,7 +46,7 @@ ssh okr-web
 # Laravel の作業
 
 ```sh
-cd /var/www/OKR-manage-app
+cd /var/www/OKR-web-app
 cp .env.example .env
 vi .env
 ```

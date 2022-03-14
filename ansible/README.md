@@ -51,8 +51,8 @@ ansible-playbook -i hosts playbook/pb_mysql.yml -v
 
 # SSH して手動で git clone 実行
 cd /var/www
-git clone git@github.com:EeeeG-Inc/OKR-manage-app.git
-cd OKR-manage-app
+git clone git@github.com:EeeeG-Inc/OKR-web-app.git
+cd OKR-web-app
 chmod 777 storage
 chmod 777 storage/app/public/profiles
 

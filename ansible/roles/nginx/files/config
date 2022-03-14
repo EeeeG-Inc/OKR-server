@@ -1,6 +1,6 @@
 server {
     listen 80 default_server;
-    root /var/www/OKR-manage-app/public;
+    root /var/www/OKR-web-app/public;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-Content-Type-Options "nosniff";
